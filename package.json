@@ -1,0 +1,57 @@
+{
+  "name": "sf-plugin-dev",
+  "displayName": "sf-plugin-dev",
+  "repository": "cristiand391/vscode-sf-plugin-dev-extension",
+  "description": "vscode extension for Salesforce CLI plugin development.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.96.4"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
+  "main": "./dist/src/extension.js",
+  "contributes": {
+    "typescriptServerPlugins": [
+      {
+        "name": "@cristiand391/typescript-sf-plugin",
+        "enableForWorkspaceTypeScriptVersions": true
+      }
+    ],
+    "commands": [
+      {
+        "command": "sf-plugin-dev.oclifOpenCommand",
+        "title": "oclif: Open a command"
+      }
+    ]
+  },
+  "scripts": {
+    "format": "prettier -w ./src",
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.4",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.21.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.7.3",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "@cristiand391/typescript-sf-plugin": "^0.1.2"
+  }
+}
