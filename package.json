@@ -23,8 +23,14 @@
     ],
     "commands": [
       {
-        "command": "sf-plugin-dev.oclifOpenCommand",
-        "title": "oclif: Open a command"
+        "command": "sf-plugin-dev.openOclifCommand",
+        "title": "Open a Command",
+        "category": "oclif"
+      },
+      {
+        "command": "sf-plugin-dev.copyCurrentCommand",
+        "title": "Copy ID of Active Command",
+        "category": "oclif"
       }
     ]
   },

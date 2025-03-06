@@ -51,3 +51,13 @@ export function getCommandIdFromPath(path: string): string {
 
   return commandId;
 }
+
+export function getActiveFilePath(): string | undefined {
+  const editor = vscode.window.activeTextEditor;
+  if (editor) {
+    const document = editor.document;
+    const filePath = document.uri.fsPath;
+    return filePath;
+  }
+  return;
+}
