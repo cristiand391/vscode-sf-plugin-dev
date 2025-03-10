@@ -27,8 +27,6 @@ async function main() {
 	const ctx = await esbuild.context({
 		entryPoints: [
 			'src/extension.ts',
-      'node_modules/@cristiand391/typescript-sf-plugin/package.json',
-      'node_modules/@cristiand391/typescript-sf-plugin/lib/index.js'
 		],
 		bundle: true,
 		format: 'cjs',
