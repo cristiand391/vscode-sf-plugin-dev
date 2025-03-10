@@ -1,19 +1,21 @@
 {
-  "name": "sf-plugin-dev",
-  "displayName": "sf-plugin-dev",
-  "repository": "cristiand391/vscode-sf-plugin-dev-extension",
-  "description": "vscode extension for Salesforce CLI plugin development.",
+  "name": "vscode-sf-cli-plugin-dev",
+  "publisher": "cristiand391",
+  "displayName": "Salesforce CLI plugin dev extension.",
+  "repository": "cristiand391/vscode-sf-cli-plugin-dev",
+  "description": "VSCode extension for Salesforce CLI plugin development.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.96.4"
   },
+  "license": "ISC",
   "categories": [
     "Other"
   ],
   "activationEvents": [
     "onLanguage:typescript"
   ],
-  "main": "./dist/src/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "typescriptServerPlugins": [
       {
@@ -51,13 +53,14 @@
     "@types/vscode": "^1.96.4",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
+    "@vscode/vsce": "^3.2.2",
     "esbuild": "^0.25.0",
     "eslint": "^9.21.0",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.7.3",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@cristiand391/typescript-sf-plugin": "^0.1.2"
+    "@cristiand391/typescript-sf-plugin": "^0.1.3"
   }
 }

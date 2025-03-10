@@ -1,0 +1,36 @@
+name: manual release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup node
+      # https://github.com/actions/setup-node/releases/tag/v3.8.1
+        uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d
+        with:
+          node-version: lts/*
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Conventional Changelog Action
+        id: changelog
+        # https://github.com/TriPSs/conventional-changelog-action/releases/tag/v4.1.1
+        uses: TriPSs/conventional-changelog-action@05fc06b05ff372d7a3890bfe625d42a0d97844de
+        with:
+          tag-prefix: ''
+      - name: Create Github Release
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npm install
+          npx vsce package
+          gh release create "${{ steps.changelog.outputs.tag }}" ./*.vsix --notes "${{ steps.changelog.outputs.clean_changelog }}"
