@@ -4,7 +4,7 @@
   "displayName": "Salesforce CLI plugin dev extension.",
   "repository": "cristiand391/vscode-sf-cli-plugin-dev",
   "description": "VSCode extension for Salesforce CLI plugin development.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.96.4"
   },
