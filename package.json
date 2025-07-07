@@ -61,6 +61,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@cristiand391/typescript-sf-plugin": "^0.1.3"
+    "@cristiand391/typescript-sf-plugin": "^0.2.1"
   }
 }
